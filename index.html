@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anclous AI - ЭЕШ & Мэргэжил Зөвлөх</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-950 via-slate-900 to-blue-950 min-h-screen flex flex-col justify-between text-slate-100 selection:bg-indigo-500 selection:text-white">
+    
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-xl border-b border-slate-800 py-4 px-4 sm:px-8 flex justify-between items-center sticky top-0 z-30 shadow-2xl">
+        <div class="flex items-center gap-3">
+            <div class="bg-gradient-to-r from-indigo-500 to-blue-500 p-2 rounded-2xl shadow-lg shadow-indigo-500/30">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+            </div>
+            <div>
+                <span class="text-lg font-black tracking-wider bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Anclous AI</span>
+                <p class="text-xs text-slate-400 hidden sm:block">Ухаалаг Мэргэжил & ЭЕШ Зөвлөх</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2 bg-slate-800/80 border border-slate-700/60 px-3 py-1.5 rounded-xl shadow-inner">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-xs font-medium text-slate-300">12-7 Enkhhuslen</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12 flex-1 space-y-6">
+        
+        <!-- Hero section / Form Card -->
+        <div class="bg-slate-900/60 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-indigo-950/50 border border-slate-800 p-6 sm:p-10 space-y-6 relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="space-y-2 relative z-10">
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">Өөрт тохирох мэргэжлээ ол</h2>
+                <p class="text-xs sm:text-sm text-slate-400">Дуртай хичээл болон ЭЕШ-ын баримжаа оноогоо оруулан хиймэл оюун ухаанаас зөвлөгөө аваарай.</p>
+            </div>
+
+            <div class="space-y-5 relative z-10">
+                <div>
+                    <label class="block text-xs sm:text-sm font-semibold text-slate-300 mb-2">📚 Өгөх / Дуртай хичээлүүд *</label>
+                    <input type="text" id="subjects" placeholder="Жнь: Математик, Физик, Англи хэл" class="w-full px-4.5 py-3.5 bg-slate-950/60 border border-slate-800 rounded-2xl outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 transition text-sm sm:text-base text-white placeholder-slate-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs sm:text-sm font-semibold text-slate-300 mb-2">🎯 ЭЕШ-ын баримжаа оноо *</label>
+                    <input type="number" id="score" min="400" max="800" placeholder="Жнь: 650" class="w-full px-4.5 py-3.5 bg-slate-950/60 border border-slate-800 rounded-2xl outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 transition text-sm sm:text-base text-white placeholder-slate-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs sm:text-sm font-semibold text-slate-300 mb-2">💡 Сонирхол, хобби</label>
+                    <textarea id="interests" rows="3" placeholder="Жнь: Код бичих, зурах, бизнес эрхлэх, юм зохион бүтээх..." class="w-full px-4.5 py-3.5 bg-slate-950/60 border border-slate-800 rounded-2xl outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 transition text-sm sm:text-base text-white placeholder-slate-500 resize-none"></textarea>
+                </div>
+            </div>
+
+            <button onclick="getAdvice()" id="submitBtn" class="w-full py-4 bg-gradient-to-r from-indigo-600 via-indigo-500 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-bold rounded-2xl shadow-xl shadow-indigo-600/30 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 text-base relative z-10 active:scale-[0.99]">
+                <span>Anclous AI-гаас зөвлөгөө авах</span>
+                <span>🚀</span>
+            </button>
+        </div>
+
+        <!-- Loading state -->
+        <div id="loading" class="hidden bg-slate-900/80 backdrop-blur-xl p-6 rounded-3xl shadow-xl text-center text-indigo-400 font-medium space-y-3 border border-slate-800 animate-fade-in">
+            <div class="inline-block animate-spin rounded-full h-8 w-8 border-3 border-indigo-500 border-t-transparent"></div>
+            <p class="text-sm font-medium text-slate-300">⏳ Anclous AI таны мэдээллийг шинжилж байна, түр хүлээнэ үү...</p>
+        </div>
+        
+        <!-- Result Box -->
+        <div id="resultBox" class="hidden bg-slate-900/80 backdrop-blur-2xl rounded-3xl shadow-2xl border border-indigo-500/30 p-6 sm:p-8 space-y-4 animate-fade-in">
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+                <div class="bg-indigo-500/20 p-2 rounded-xl text-indigo-400">
+                    ✨
+                </div>
+                <h3 class="font-bold text-white text-lg sm:text-xl">Anclous AI Зөвлөмж</h3>
+            </div>
+            <div id="resultContent" class="whitespace-pre-line text-slate-300 text-sm sm:text-base leading-relaxed"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 px-4 text-xs text-slate-500 border-t border-slate-800/80 bg-slate-900/40 mt-12">
+        <p>Хөгжүүлсэн: <span class="font-semibold text-indigo-400">12-7 Enkhhuslen</span> • Anclous AI © 2026</p>
+    </footer>
+
+    <script>
+        async function getAdvice() {
+            const subjects = document.getElementById('subjects').value;
+            const score = document.getElementById('score').value;
+            const interests = document.getElementById('interests').value;
+            const btn = document.getElementById('submitBtn');
+            const loading = document.getElementById('loading');
+            const resultBox = document.getElementById('resultBox');
+            const resultContent = document.getElementById('resultContent');
+
+            if (!subjects || !score) {
+                alert('Судлах хичээл болон ЭЕШ-ын оноогоо заавал оруулна уу!');
+                return;
+            }
+
+            btn.disabled = true;
+            loading.classList.remove('hidden');
+            resultBox.classList.add('hidden');
+
+            try {
+                const res = await fetch('/advise', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ subjects, score, interests })
+                });
+                const data = await res.json();
+                if(data.advice) {
+                    resultContent.innerText = data.advice;
+                    resultBox.classList.remove('hidden');
+                    resultBox.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert('Алдаа гарлаа: ' + data.error);
+                }
+            } catch (err) {
+                alert('Холболтын алдаа гарлаа.');
+            } finally {
+                btn.disabled = false;
+                loading.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
